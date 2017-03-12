@@ -8,7 +8,7 @@ const URL = url.URL;
 const logger = winston.loggers.get('youtube');
 
 function streamVideo(videoURL, res) {
-  const stream = ytdl(videoURL, ['-f', '171']);
+  const stream = ytdl(videoURL);
   res.type('video/webm');
   stream.on('info', (info) => {
     logger.info(`"${info.title}" stream started`);
